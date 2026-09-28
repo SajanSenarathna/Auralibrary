@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AuraLibrary</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="login">
+  <form id="lf">
+    <h1>AuraLibrary</h1>
+    <p>Sign in to manage the library</p>
+    <input id="nm" placeholder="Your full name" hidden>
+    <input id="em" type="email" placeholder="Email" required>
+    <input id="pw" type="password" placeholder="Password (6+ characters)" minlength="6" required>
+    <button class="btn">Sign in</button>
+    <p id="lm" class="mut"></p>
+    <a href="#" id="reg">Create an account</a>
+  </form>
+</div>
+
+<div id="app" hidden>
+  <aside>
+    <div class="brand">AuraLibrary</div>
+    <nav id="nav"></nav>
+    <div class="me"><span id="who"></span><button id="out" class="ghost">Sign out</button></div>
+  </aside>
+  <div class="main">
+    <header>
+      <h2 id="title"></h2>
+      <div class="hr">
+        <input id="gs" placeholder="Search books, press Enter">
+        <button class="ghost" id="scan">Scan code</button>
+        <button class="ghost" id="bell"></button>
+        <button class="ghost" id="theme">Dark mode</button>
+      </div>
+    </header>
+    <main id="view"></main>
+  </div>
+</div>
+
+<div id="modal" hidden><div class="box" id="box"></div></div>
+<div id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>
