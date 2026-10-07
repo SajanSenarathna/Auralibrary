@@ -9,9 +9,22 @@ input:focus,select:focus,button:focus-visible{outline:2px solid var(--g);outline
 [data-theme=dark] .btn{color:#062012}
 .ghost{background:transparent;border:1px solid var(--line);padding:.5rem .8rem;border-radius:8px;cursor:pointer}
 .ghost:hover{background:var(--g2)}.s{padding:.3rem .6rem;font-size:.8rem}.danger{color:var(--warn)}
-#login{min-height:100vh;display:grid;place-items:center;background:linear-gradient(160deg,var(--side),#1d7a4b)}
-#lf{background:var(--card);padding:2rem;border-radius:16px;width:min(360px,92vw);display:grid;gap:.8rem}
-#lf h1{font-size:1.8rem;color:var(--g)}#lf p,.mut{color:var(--mut)}#lf a{color:var(--g);text-align:center;font-size:.9rem}
+.mut{color:var(--mut)}
+/* ---- Login screen: CSS-only split layout (no HTML/JS changes) ---- */
+#login{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(to right,var(--card) 50%,var(--g) 50%);position:relative}
+#login::before{content:"";background-image:radial-gradient(circle,var(--g2) 38%,transparent 40%),radial-gradient(circle,var(--g2) 18%,transparent 20%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 140'%3E%3Cg fill='%231d7a4b' opacity='.85'%3E%3Crect x='20' y='55' width='24' height='75' rx='3'/%3E%3Crect x='50' y='30' width='20' height='100' rx='3'/%3E%3Crect x='76' y='65' width='26' height='65' rx='3'/%3E%3Crect x='108' y='45' width='22' height='85' rx='3'/%3E%3Crect x='136' y='70' width='24' height='60' rx='3'/%3E%3Crect x='14' y='130' width='172' height='7' rx='3'/%3E%3C/g%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center 60%,center 20%,center 66%;background-size:120px 120px,50px 50px,62% auto}
+@media(prefers-color-scheme:dark){#login::before{background-image:radial-gradient(circle,var(--g2) 38%,transparent 40%),radial-gradient(circle,var(--g2) 18%,transparent 20%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 140'%3E%3Cg fill='%233fcf8e' opacity='.9'%3E%3Crect x='20' y='55' width='24' height='75' rx='3'/%3E%3Crect x='50' y='30' width='20' height='100' rx='3'/%3E%3Crect x='76' y='65' width='26' height='65' rx='3'/%3E%3Crect x='108' y='45' width='22' height='85' rx='3'/%3E%3Crect x='136' y='70' width='24' height='60' rx='3'/%3E%3Crect x='14' y='130' width='172' height='7' rx='3'/%3E%3C/g%3E%3C/svg%3E")}}
+#lf{background:var(--card);padding:2.4rem 2.2rem;border-radius:20px;width:min(360px,88%);display:grid;gap:1rem;align-self:center;justify-self:center;grid-column:2;box-shadow:0 20px 50px rgba(0,0,0,.25);position:relative;z-index:1}
+#lf h1{font-size:2rem;font-weight:800;color:var(--ink)}
+#lf p{color:var(--mut);display:inline-block;overflow:hidden;white-space:nowrap;max-width:26ch;border-right:2px solid var(--g);animation:typecycle 7s steps(28) infinite}
+@keyframes typecycle{0%{max-width:0}38%{max-width:26ch}75%{max-width:26ch}96%{max-width:0}100%{max-width:0}}
+#lf input{height:2.9rem;border-radius:999px;background-repeat:no-repeat;background-position:1.1rem center;background-size:18px}
+#lf input#em{padding-left:2.9rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b8577' stroke-width='2'%3E%3Crect x='3' y='5' width='18' height='14' rx='2'/%3E%3Cpath d='m3 7 9 6 9-6'/%3E%3C/svg%3E")}
+#lf input#pw{padding-left:2.9rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b8577' stroke-width='2'%3E%3Crect x='5' y='11' width='14' height='10' rx='2'/%3E%3Cpath d='M8 11V8a4 4 0 0 1 8 0v3'/%3E%3C/svg%3E")}
+#lf input#nm{padding-left:2.9rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b8577' stroke-width='2'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M4 21a8 8 0 0 1 16 0'/%3E%3C/svg%3E")}
+#lf .btn{height:2.9rem;border-radius:999px;font-size:.95rem}
+#lf a{color:var(--g);text-align:center;font-size:.9rem;font-weight:600}
+@media(max-width:800px){#login{grid-template-columns:1fr;background:var(--card)}#login::before{display:none}#lf{grid-column:1}}
 #app{display:flex;min-height:100vh}
 aside{width:240px;background:var(--side);color:#dff3e6;display:flex;flex-direction:column;padding:1.2rem .8rem;position:sticky;top:0;height:100vh}
 .brand{font-weight:800;font-size:1.3rem;padding:0 .6rem 1rem}
